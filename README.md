@@ -33,3 +33,10 @@ angular.json
 By performing change detection, we have to change from ChangeDetectionStrategy to OnPush. 
 - whenever changes happen in the component, if it is default then total DOm tree will update. if we chnaged from default to onPush then we have to update manually.
 -
+Change Detection means updating the view (DOM) when the data has changed. default chnage detection strategy is conservative and will checks every time something may have changed, this is called dirty checking.This can be problematic when you’re starting to have a big application with many components, specially if you’re focused on performance.
+
+With onPush, the component only depends on its inputs and embraces the immutability, the change detection strategy will kicks in when:
+- The Input reference changes;
+- An event originated from the component or one of its children;
+- Run change detection explicitly (componentRef.markForCheck());
+- Use the async pipe in the view.
